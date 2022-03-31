@@ -22,6 +22,7 @@ Clustering is a type of unsupervised machine learning, which means the actual "y
   Use breast_cancer data from sklearn, generate the following confusion matrix
 ![Goal2](https://github.com/TinaLiu46/k_means/blob/main/images/confusion_matrix.png?raw=true "Title")
 ## Implemente the algorirhm on image processing
+K-means can generate some interesting artificial effect of the picture by clustering the color of the image. Rather than use millions of colors, we can usually get away with 256 or even 64 colors by setting different k in our k-means function. Below is an example of only showing 30 colors.
 ```python
   pixel_values = image.reshape((-1, 30))
   pixel_values = np.float32(pixel_values)
@@ -34,7 +35,13 @@ Clustering is a type of unsupervised machine learning, which means the actual "y
   plt.imshow(segmented_image)
   plt.show()
 ```
+![Goal2](https://github.com/TinaLiu46/k_means/blob/main/images/pearl_.png?raw=true "Title")
+
 ## Spectral clustering
+Algorithm:
+- Take our graph and built an adjacency matrix
+- Create the Graph Laplacian by subtracting the adjacency matrix from the degree matrix and calculate the eigenvalues of the Laplacian. The vectors associated with those eigenvalues contain information on how to segment the nodes
+- Performe K-Means on those vectors in order to get the labels for the nodes
 ## Conclusion
 
   Clustering is a very important method in Machine Learning. This report discussed one types of clustering - k-means and its initialization - kmeans++. K-means is good at group things that are continuous and visually seperated since it divides datapoints based on their distances. This report also mentions Spectral clustering, which group datapoints based on the graph structure.
